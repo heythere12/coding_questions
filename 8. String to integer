@@ -1,0 +1,36 @@
+        
+class Solution(object):
+    def myAtoi(self, s):
+        MAX_INT = (2**31)-1
+        MIN_INT = -2147483648
+        stripped_s = s.strip()
+        if(len(stripped_s)==0):
+            return 0
+        sign=''
+        if(stripped_s[0]=='+' or stripped_s[0]=='-'):
+            sign = stripped_s[0]
+      
+        if(sign):
+            new_s=stripped_s[1:]
+        else:
+            new_s = stripped_s
+            
+        i=0
+        while(i<len(new_s)):
+            if(new_s[i].isdigit()):
+                i=i+1
+            else:
+                break
+                
+        ans = new_s[:i]
+        if(len(ans)==0):
+            return 0
+      
+        if(sign):
+            ans = int(sign + ans)
+        else:
+            ans = int(ans)
+
+        return max(MIN_INT, min(MAX_INT,(ans)))
+
+        
