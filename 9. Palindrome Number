@@ -1,0 +1,16 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if(x<0):
+            return False
+        no=x
+        
+        s=0
+        while(x!=0):
+            temp1 = x%10
+            x = x//10
+            s = temp1 + s*10
+        if(s==no):
+            return True
+        else:
+            return False
+            
